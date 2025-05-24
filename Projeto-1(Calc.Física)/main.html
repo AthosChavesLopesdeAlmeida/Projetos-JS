@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de física</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora de Física</h1>
+    </header>
+    <main>
+      <nav>
+        <ul>
+          <li><a href="calculo.html"> F.H do MRU</a></li>
+          <li><a href="cinematica.html">Aceleração</a></li>
+          <li><a href="dinamica.html">F.H da Velocidade</a></li>
+          <li><a href="termologia.html">Toricceli</a></li>
+          <li><a href="ondas.html">Ondas</a></li>
+          <li><a href="eletromagnetismo.html">Eletromagnetismo</a></li>
+          <li><a href="optica.html">Óptica</a></li>
+        </ul>
+      </nav>
+      <section>
+        <h1>F.H da posição</h1>
+        <input type="number" id="posicaoinicial" placeholder="Informe a posição inicial (m)">
+        <input type="number" id="velinicial" placeholder="Informe a velocidade inicial (m/s)">
+        <input type="number" id="tempo" placeholder="Informe o tempo (s)">
+        <input type="number" id="aceleracao" placeholder="Informe a aceleração (m/s²)">
+        <input type="button" value="Calcular" id="calcular" onclick="calcular()">
+        <div id="res"></div>
+      </section>
+    </main>
+    <script>
+      function calcular() {
+        var So = Number(document.getElementById("posicaoinicial").value)
+        var Vo = Number(document.getElementById("velinicial").value)
+        var t = Number(document.getElementById("tempo").value)
+        var a = Number(document.getElementById("aceleracao").value)
+        var S = So + Vo * t + (a * (t*t))/2
+        var res = document.getElementById("res")
+
+        res.innerHTML = `A posição após ${t} segundo(s) é de ${S} metros`
+      }
+    </script>
+  </body>
+</html>
