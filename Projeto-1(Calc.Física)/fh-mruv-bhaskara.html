@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de física</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora de Física</h1>
+    </header>
+    <main>
+      <nav>
+        <ul>
+          <li><a href="menu.html">Voltar para o menu</a></li>
+        </ul>
+      </nav>
+      <section>
+        <h1>MRUV com bhaskara</h1>
+        <input type="number" id="posiçao" placeholder="Informe a posição final (m)">
+        <input type="number" id="posiçaoinicial" placeholder="Informe a posição inicial (m)">
+        <input type="number" id="aceleraçao" placeholder="Informe a aceleração (m/s²)">
+        <input type="number" id="velinicial" placeholder="Informe a velocidade inicial (m/s²)">
+        <input type="button" value="Calcular" id="calcular" onclick="calcular()">
+        <div id="res"></div>
+      </section>
+    </main>
+    <script>
+      function calcular() {
+        var S = Number(document.getElementById("posiçao").value)
+        var So = Number(document.getElementById("posiçaoinicial").value)
+        var ac = Number(document.getElementById("aceleraçao").value)/2
+        var Vo = Number(document.getElementById("velinicial").value)
+        
+        var A = ac
+        var B = Vo
+        var C = So - S
+
+        var delta = (B*B) - 4 * A * C
+        
+        var t1 = (-B + Math.sqrt(delta)) / (2*A)
+        var t2 = (-B - Math.sqrt(delta)) / (2*A)
+
+        var res = document.getElementById("res")
+        
+        if (delta < 0) {
+          res.innerHTML = "Não existem raízes reais para a equação"
+        } else if (delta == 0) {
+          res.innerHTML = `A posição após ${t1} segundo(s) é de ${S} metros`
+        } else {
+          res.innerHTML = `As raízes são: T1 = ${t1} e T2 = ${t2}`
+        }
+      }
+    </script>
+  </body>
+</html>
