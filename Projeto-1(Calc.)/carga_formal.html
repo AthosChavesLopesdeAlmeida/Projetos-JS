@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de física</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+
+      <h1>Calculadora </h1>
+    </header>
+    <main>
+      <nav>
+        <ul>
+          <li><a href="menu.html">Voltar para o menu</a></li>
+        </ul>
+      </nav>
+      <section>
+        <h1>Cálculo Carga Formal</h1>
+        <input type="number" id="valencia" placeholder="Informe o número de elétrons na camada de valência dos átomos">
+        <input type="number" id="EL" placeholder="Informe os pares de elétrons compartilhados">
+        <input type="number" id="ENL" placeholder="Informe os pares de elétrons não compartilhados">
+        <input type="button" value="Calcular" id="calcular" onclick="calcular()">
+        <div id="res"></div>
+      </section>
+    </main>
+    <script>
+      function calcular() {
+        var val = document.getElementById("valencia").value 
+        var EL = document.getElementById("EL").value
+        var ENL = document.getElementById("ENL").value
+
+        var CF = val - [(1/2 * EL + ENL)]
+
+        var res = document.getElementById("res")
+
+        res.innerHTML = `Carga Formal: ${CF}`
+      }
+    </script>
+  </body>
+</html>

@@ -24,7 +24,7 @@ body {
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   border-bottom: 1px solid var(--cor5);
   background-color: var(--cor2);
@@ -58,6 +58,9 @@ ul > li {
 
 ul > li > a {
   text-decoration: none;
+  
   color: var(--cor4);
+  
   font-size: 1.1em;
 }
+
