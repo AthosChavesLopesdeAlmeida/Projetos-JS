@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de física</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora</h1>
+    </header>
+    <main>
+      <nav>
+        <ul>
+          <li><a href="menu.html">Voltar para o menu</a></li>
+        </ul>
+      </nav>
+      <section>
+        <h1>Cálculo de aceleração</h1>
+        <input type="number" id="velinicial" placeholder="Informe a velocidade inicial (m/s)">
+        <input type="number" id="velfinal" placeholder="Informe a velocidade final (m/s)">
+        <input type="number" id="tempoinicial" placeholder="Informe o tempo inicial (s)">
+        <input type="number" id="tempofinal" placeholder="Informe o tempo final (s)">
+        <input type="button" value="Calcular" id="calcular" onclick="calcular()">
+        <div id="res"></div>
+      </section>
+    </main>
+    <script>
+      function calcular() {
+        var vi = Number(document.getElementById("velinicial").value)
+        var vf = Number(document.getElementById("velfinal").value)
+        var ti = Number(document.getElementById("tempoinicial").value)
+        var tf = Number(document.getElementById("tempofinal").value)
+        var a = (vf - vi) / (tf - ti)
+        var res = document.getElementById("res")
+
+        res.innerHTML = `A aceleração é de ${a}m/s²`
+      }
+    </script>
+  </body>
+</html>
