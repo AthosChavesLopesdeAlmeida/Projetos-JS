@@ -8,7 +8,8 @@
   </head>
   <body>
     <header>
-      <h1>Calculadora</h1>
+
+      <h1>Calculadora </h1>
     </header>
     <main>
       <nav>
@@ -17,25 +18,29 @@
         </ul>
       </nav>
       <section>
-        <h1>Cálculo de aceleração</h1>
-        <input type="number" id="velinicial" placeholder="Informe a velocidade inicial (m/s)">
-        <input type="number" id="velfinal" placeholder="Informe a velocidade final (m/s)">
-        <input type="number" id="tempoinicial" placeholder="Informe o tempo inicial (s)">
-        <input type="number" id="tempofinal" placeholder="Informe o tempo final (s)">
+        <h1>Fatorial</h1>
+        <input type="number" id="numero" placeholder="Informe um número para saber seu fatorial:">
         <input type="button" value="Calcular" id="calcular" onclick="calcular()">
         <div id="res"></div>
       </section>
     </main>
     <script>
       function calcular() {
-        var vi = Number(document.getElementById("velinicial").value)
-        var vf = Number(document.getElementById("velfinal").value)
-        var ti = Number(document.getElementById("tempoinicial").value)
-        var tf = Number(document.getElementById("tempofinal").value)
-        var a = (vf - vi) / (tf - ti)
-        var res = document.getElementById("res")
+        var numero = Number(document.getElementById("numero").value)
+        var res = document.getElementById('res')
 
-        res.innerHTML = `A aceleração é de ${a}m/s²`
+        if (numero < 0) {
+          res.innerHTML = "O fatorial não existe para números negativos."
+        } else if (numero === 0) {
+          res.innerHTML = "O fatorial de 0 é 1."
+        } else {
+          var fatorial = 1
+          for (var i = 2; i <= numero; i++) {
+            fatorial *= i
+          }
+        }
+
+        res.innerHTML = `O fatorial de ${numero} é ${fatorial}.`
       }
     </script>
   </body>

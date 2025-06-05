@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de física</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora</h1>
+    </header>
+    <main>
+      <nav>
+        <ul>
+          <li><a href="menu.html">Voltar para o menu</a></li>
+        </ul>
+      </nav>
+      <section>
+        <h1>Fórmula de Torricelli</h1>
+        <input type="number" id="velinicial" placeholder="Informe a velocidade inicial (m/s)">
+        <input type="number" id="aceleração" placeholder="Informe a aceleração (m/s²)">
+        <input type="number" id="deslocamento" placeholder="Informe o deslocamento (m)">
+        <input type="button" value="Calcular" id="calcular" onclick="calcular()">
+        <div id="res"></div>
+      </section>
+    </main>
+    <script>
+      function calcular() {
+        var vi = Number(document.getElementById('velinicial').value)
+        var a = Number(document.getElementById('aceleração').value)
+        var d = Number(document.getElementById('deslocamento').value)
+        var vel = Math.sqrt(vi*vi + 2*a*d)
+
+        var res = document.getElementById('res')
+        res.innerHTML = `A velocidade é de ${vel}m/s`
+      }
+    </script>
+  </body>
+</html>
